@@ -72,3 +72,17 @@ resource "azurerm_network_interface" "web_nic" {
 output "web_vm_public_ip" {
   value = azurerm_linux_virtual_machine.web_vm.public_ip_address
 }
+
+resource "azurerm_network_security_rule" "web_allow_https" {
+  resource_group_name = azurerm_resource_group.rg.name
+  name                        = "allow-https"
+  priority                    = 101
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"
+  source_port_range           = "*"
+  destination_port_range      = "443"
+  source_address_prefix       = "*"
+  destination_address_prefix  = "*"
+  network_security_group_name = azurerm_network_security_group.web_nsg.name
+}
