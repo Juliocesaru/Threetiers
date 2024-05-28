@@ -1,4 +1,4 @@
-module "three_tier_app" {
+module "threetierapp" {
   source              = "./modulethreetierapp/"
   resource_group_name = "mcitthreetiermodule"
   location            = "West Europe"
