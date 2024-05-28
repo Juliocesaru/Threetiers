@@ -1,5 +1,5 @@
 module "threetierapp" {
-  source              = "./modulethreetierapp/"
+  source              = "./modulethretierapp/"
   resource_group_name = "mcitthreetiermodule"
   location            = "West Europe"
   admin_username      = var.administrator_login
